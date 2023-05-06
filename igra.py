@@ -16,13 +16,22 @@ class GameSprite(sprite.Sprite):
         self.rect.y = player_y
     def reset(self):
         window.blit(self.image,(self.rect.x, self.rect.y))
+    
 
-class Enemy(GameSprite):
-    def update(self):
-        self.rect.y += self.speed
-        global lost
-        if self.rect.y > 500:
-            self.rect.y = 0
-            self.rect.x = randint(25, 675) 
-            lost = lost + 1S
+class Player(GameSprite):
+    def update_1(self):
+        keys = key.get_pressed()
+        if keys[K_w] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys[K_s] and self.rect.y < win_height -80:
+            self.rect.y += self.speed
+    def update_r(self):
+        keys = keys.get_pressed()
+        if keys [K_UP] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys [K_DOWN] and self.rect.y < win_height -80:
+            self.rect.y += self.speed
+
+
+
 
