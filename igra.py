@@ -1,8 +1,14 @@
 from pygame import *
 from random import randint
+finish = False
+game = True
+clock = time.Clock()
+fps = 45
+
 
 win_width = 700
 win_height = 500
+
 window = display.set_mode((win_width, win_height))
 display.set_caption('ПИНГ-ПОНГ')
 
@@ -17,6 +23,7 @@ class GameSprite(sprite.Sprite):
     def reset(self):
         window.blit(self.image,(self.rect.x, self.rect.y))
     
+
 class Player(GameSprite):
     def update_1(self):
         keys = key.get_pressed()
@@ -30,8 +37,8 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys [K_DOWN] and self.rect.y < win_height -80:
             self.rect.y += self.speed
-
-
-            
+pravayaraketa = Player('images.jpg', 30,200,4,50,150)
+levayaunitaz = Player('Без названия.jpg', 520,200,4,50,150)
+ball = GameSprite('zelenka.jpg',200,200,4,50,50 )
 
 
